@@ -12,6 +12,12 @@ pub mod movie_review {
         description: String,
         rating: u8,
     ) -> Result<()> {
+        require!(title.len() < 20, MovieReviewError::TitleTooLong);
+
+        require!(description.len() < 50, MovieReviewError::DescriptionTooLong);
+
+        require!(rating < 5 && rating > 1, MovieReviewError::InvalidRating);
+
         msg!(
             "Title: {}, Description: {}, rating: {}",
             title,
@@ -37,6 +43,12 @@ pub mod movie_review {
         description: String,
         rating: u8,
     ) -> Result<()> {
+        require!(title.len() < 20, MovieReviewError::TitleTooLong);
+
+        require!(description.len() < 50, MovieReviewError::DescriptionTooLong);
+
+        require!(rating < 5 || rating > 1, MovieReviewError::InvalidRating);
+
         msg!(
             "Title: {}, Description: {}, rating: {}",
             title,
@@ -121,4 +133,16 @@ pub struct Movie {
     pub rating: u8,
     pub reviewer: Pubkey,
     pub bump: u8,
+}
+
+#[error_code]
+pub enum MovieReviewError {
+    #[msg("Rating should be between 1 and 5")]
+    InvalidRating,
+
+    #[msg("Title length is greater than 20")]
+    TitleTooLong,
+
+    #[msg("Description length is greater than 50")]
+    DescriptionTooLong,
 }

@@ -1,7 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { MovieReview } from "../target/types/movie_review";
 import { expect } from "chai";
+import { MovieReview } from "../target/types/movie_review";
 
 describe("movie-review", () => {
   // Configure the client to use the local cluster.
@@ -11,13 +11,13 @@ describe("movie-review", () => {
   const program = anchor.workspace.MovieReview as Program<MovieReview>;
 
   const newMovie = {
-    title: "Spiderman-6",
+    title: "Spiderman-12",
     description: "With great powers comes great responsibility",
     rating: 4,
   };
 
   const updatedMovie = {
-    description: "Spider-Man saves NYC from Green Goblin's terror.",
+    description: "Spider-Man saves NYC from Green Goblin's terrors",
     rating: 5,
   };
 
