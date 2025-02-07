@@ -1,0 +1,17 @@
+{
+  "name": "token-nft-lab",
+  "version": "1.0.0",
+  "main": "nft-token-lab.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bunnyBites",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@solana-developers/helpers": "^2.7.0",
+    "@solana/spl-token": "^0.4.12",
+    "@solana/web3.js": "^1.98.0",
+    "esrun": "^3.2.26"
+  }
+}
